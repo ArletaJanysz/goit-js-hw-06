@@ -14,24 +14,35 @@ const images = [
 ];
 
 const galleryList = document.querySelector(".gallery");
+//Wygenerowanie tablicy znaczników <li> w formie ciągów tekstowych za pomocą metody map()
+const liElements = images.map(
+	(image) =>
+		`<li class="gallery-item"><img src="${image.url}" alt="${image.alt}" style="width: 800px; height: auto; border: solid black 5px; padding: 5px;"></li>`
+);
 
-images.forEach((image) => {
-	// utworzenie elementu li
-	const listItem = document.createElement("li");
-	// dodanie klasy dla li
-	listItem.classList.add("gallery-item");
+//Łączymy wszystkie elementy <li> w jeden długi ciąg za pomocą metody join()
+const htmlString = liElements.join("");
 
-	// utworzenie img tagów i dodanie im właściwości
-	const imgTag = document.createElement("img");
-	imgTag.src = image.url;
-	imgTag.alt = image.alt;
+//Wstawiamy wygenerowany HTML do listy .gallery
+galleryList.innerHTML = htmlString;
 
-	// dodanie imgTag do listItem
-	listItem.appendChild(imgTag);
+// images.forEach((image) => {
+// 	// utworzenie elementu li
+// 	const listItem = document.createElement("li");
+// 	// dodanie klasy dla li
+// 	listItem.classList.add("gallery-item");
 
-	//dodanie elementów li do listy galerii
-	galleryList.appendChild(listItem);
-});
+// 	// utworzenie img tagów i dodanie im właściwości
+// 	const imgTag = document.createElement("img");
+// 	imgTag.src = image.url;
+// 	imgTag.alt = image.alt;
+
+// 	// dodanie imgTag do listItem
+// 	listItem.appendChild(imgTag);
+
+// 	//dodanie elementów li do listy galerii
+// 	galleryList.appendChild(listItem);
+// });
 
 const pictures = document.querySelectorAll("img");
 pictures.forEach((element) => {

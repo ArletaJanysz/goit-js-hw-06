@@ -10,7 +10,10 @@ const ingredients = [
 // Pobranie referencji do listy ul#ingredients
 const ingredientsList = document.getElementById("ingredients");
 
-// Iteracja przez tablicę ingredients
+// Utowrzenie pustej tablicy do przechowywania elementów <li>
+const listItems = [];
+
+// Iteracja przez tablicę ingredients i tworzenie elementów <li>
 ingredients.forEach((ingredient) => {
 	// Utworzenie elementu <li>
 	const listItem = document.createElement("li");
@@ -22,5 +25,7 @@ ingredients.forEach((ingredient) => {
 	listItem.classList.add("item");
 
 	// Dodanie elementu <li> do listy ul#ingredients
-	ingredientsList.appendChild(listItem);
+	listItems.push(listItem);
 });
+
+ingredientsList.append(...listItems);
