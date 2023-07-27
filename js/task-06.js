@@ -2,6 +2,8 @@ const validationInput = document.getElementById("validation-input");
 
 validationInput.addEventListener("blur", () => {
 	const expectedLength = parseInt(validationInput.getAttribute("data-length"));
+	// wskazówka: zamiast validationInput.getAttribute("data-length") też
+	// można pisać validationInput.dataset.length
 	const enteredValue = validationInput.value.trim();
 
 	if (enteredValue.length === expectedLength) {
